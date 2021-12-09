@@ -1,6 +1,18 @@
+![Screenshot](screenshots/Astroids2.png)
 # Astroids!
 
 Astroids clone written twice in Pygame and Pygame Zero.
+
+
+# Controls
+
+Up - Fires the main engines.
+
+Left, Right - Rotates the ship.
+
+Space - Fires the ship's weapon.
+
+M - Pauses or resumes the music.
 
 
 # Python PyGame Zero
@@ -39,3 +51,9 @@ If you wish to install it into your system run this command. This will add a men
 You can also run it from the terminal with this command.
 
     astroids-pygame
+
+![Screenshot](screenshots/Astroids3.png)
+![Screenshot](screenshots/Astroids4.png)
+![Screenshot](screenshots/Astroids5.png)
+![Screenshot](screenshots/Astroids6.png)
+![Screenshot](screenshots/Astroids7.png)
