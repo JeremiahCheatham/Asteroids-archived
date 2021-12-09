@@ -1,5 +1,7 @@
-# Astroids
+# Astroids!
+
 Astroids clone written twice in Pygame and Pygame Zero.
+
 
 # Python PyGame Zero
 
