@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Astroids - PyGame
+GenericName=Astroids clone
+Comment=An Astroids game in PyGame.
+Keywords=Game;Pygame;Astroids
+Exec=astroids-pygame
+Icon=/usr/share/astroids/images/icon.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Game
