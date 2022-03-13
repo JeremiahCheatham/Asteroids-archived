@@ -9,7 +9,7 @@ WIDTH = 800
 HEIGHT = 600
 CENTERX = WIDTH / 2
 CENTERY = HEIGHT / 2
-TITLE = "Astroids - Pygame Zero"
+TITLE = "ASTROIDS! - Pygame Zero"
 ICON = "images/icon.png"
 MUSIC = "falling"
 
@@ -155,7 +155,7 @@ def shoot():
         if shotcount:
             shotcount -= 1
         shots.append(shot)
-        sounds.laser3.play()
+        sounds.laser.play()
 
 
 def on_key_down(key):
