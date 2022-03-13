@@ -12,7 +12,7 @@ WIDTH = 800
 HEIGHT = 600
 CENTERX = WIDTH / 2
 CENTERY = HEIGHT / 2
-TITLE = "Astroids - Pygame"
+TITLE = "ASTROIDS! - Pygame"
 ICON = "images/icon.png"
 FPS = 60
 
