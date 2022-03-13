@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
-Name=Astroids - PyGame
+Name=ASTROIDS! - PyGame
 GenericName=Astroids clone
 Comment=An Astroids game in PyGame.
 Keywords=Game;Pygame;Astroids
