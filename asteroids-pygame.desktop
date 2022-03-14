@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=ASTEROIDS! - PyGame
+GenericName=Asteroids clone
+Comment=An Asteroids game in PyGame.
+Keywords=Game;Pygame;Asteroids
+Exec=asteroids-pygame
+Icon=/usr/share/asteroids/images/icon.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Game
