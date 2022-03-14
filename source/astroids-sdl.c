@@ -113,7 +113,8 @@ int main() {
                             ast.exit_status = QUIT;
                             break;
                         case SDL_SCANCODE_SPACE:
-                            shot_create(&shots, &player.sprite, &ast);
+                            if (ast.mode == MODE_PLAY)
+                                shot_create(&shots, &player.sprite, &ast);
                             break;
                         case SDL_SCANCODE_M:
                             if(Mix_PausedMusic())
