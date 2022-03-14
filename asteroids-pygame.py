@@ -12,7 +12,7 @@ WIDTH = 800
 HEIGHT = 600
 CENTERX = WIDTH / 2
 CENTERY = HEIGHT / 2
-TITLE = "ASTROIDS! - Pygame"
+TITLE = "ASTEROIDS! - Pygame"
 ICON = "images/icon.png"
 FPS = 60
 
@@ -48,10 +48,10 @@ SHOTLIFE = 40
 SHOT_DIA = 5
 shots = []
 
-ASTROID_L = 58
-ASTROID_M = 26
-ASTROID_S = 12
-astroids = []
+ASTEROID_L = 58
+ASTEROID_M = 26
+ASTEROID_S = 12
+asteroids = []
 
 
 class Ship(pygame.sprite.Sprite):
@@ -118,25 +118,25 @@ class Shot(pygame.sprite.Sprite):
         self.diameter = SHOT_DIA
 
 
-class Astroid(pygame.sprite.Sprite):
-    def __init__(self, astroid_size, angle, speed, spin):
+class Asteroid(pygame.sprite.Sprite):
+    def __init__(self, asteroid_size, angle, speed, spin):
         super().__init__()
-        self.og_surf = pygame.image.load("images/astroid" + astroid_size + ".png").convert_alpha()
+        self.og_surf = pygame.image.load("images/asteroid" + asteroid_size + ".png").convert_alpha()
         self.surf = self.og_surf
         self.rect = self.surf.get_rect()
         self.x, self.y = self.rect.center
         self._angle = angle
         self.spin = spin
-        self.astroid_size = astroid_size
+        self.asteroid_size = asteroid_size
         radian = math.radians(angle)
         self.xvel = math.sin(radian) * speed
         self.yvel = math.cos(radian) * speed
-        if astroid_size == "large":
-            self.diameter = ASTROID_L
-        elif astroid_size == "medium":
-            self.diameter = ASTROID_M
+        if asteroid_size == "large":
+            self.diameter = ASTEROID_L
+        elif asteroid_size == "medium":
+            self.diameter = ASTEROID_M
         else:
-            self.diameter = ASTROID_S
+            self.diameter = ASTEROID_S
 
     @property
     def angle(self):
@@ -178,27 +178,27 @@ def toggle_immunity():
         pygame.time.set_timer(immunity_timer, 3000, True)
 
 
-def create_astroids(num):
-    global astroids
-    astroids = []
-    for astroid in range(0, num):
+def create_asteroids(num):
+    global asteroids
+    asteroids = []
+    for asteroid in range(0, num):
         angle = randint(-180, 180)
         spin = randint(-100, 100) / 100
         speed = randint(1, 10) / 10
-        astroid = Astroid("large", angle, speed, spin)
+        asteroid = Asteroid("large", angle, speed, spin)
         dist = 0
         while dist < 200:
-            astroid.x, astroid.y = randint(0, WIDTH), randint(0, HEIGHT)
-            dist = math.hypot(astroid.x - CENTERX, astroid.y - CENTERY)
-        astroid.rect.center = astroid.x, astroid.y
-        astroids.append(astroid)
+            asteroid.x, asteroid.y = randint(0, WIDTH), randint(0, HEIGHT)
+            dist = math.hypot(asteroid.x - CENTERX, asteroid.y - CENTERY)
+        asteroid.rect.center = asteroid.x, asteroid.y
+        asteroids.append(asteroid)
 
 
 def create_level():
     global shots
     shots = []
     ship.reset()
-    create_astroids(level)
+    create_asteroids(level)
     if not immunity:
         toggle_immunity()
 
@@ -209,7 +209,7 @@ def mode_select():
         level = 1
         lives = STARTING_LIVES
         score = 0
-        messege_text.text("ASTROIDS!")
+        messege_text.text("ASTEROIDS!")
         game_mode = "level"
     elif game_mode == "level":
         shotcount = 100
@@ -314,44 +314,44 @@ def update_shots():
                 shot.rect.center = shot.x, shot.y
 
 
-def update_astroids():
-    if astroids:
-        for astroid in astroids:
-            astroid.angle += astroid.spin
-            astroid.x -= astroid.xvel
-            astroid.y -= astroid.yvel
-            check_off_screen(astroid)
-            astroid.rect.center = astroid.x, astroid.y
+def update_asteroids():
+    if asteroids:
+        for asteroid in asteroids:
+            asteroid.angle += asteroid.spin
+            asteroid.x -= asteroid.xvel
+            asteroid.y -= asteroid.yvel
+            check_off_screen(asteroid)
+            asteroid.rect.center = asteroid.x, asteroid.y
 
 
-def split_astroid(angle, pos, size):
+def split_asteroid(angle, pos, size):
     angle += 90
     for i in range(2):
         spin = randint(-100, 100) / 100
         speed = randint(3, 12) / 10
-        astroid = Astroid(size, angle, speed, spin)
-        astroid.rect.center = pos
-        astroid.x, astroid.y = pos
-        astroids.append(astroid)
+        asteroid = Asteroid(size, angle, speed, spin)
+        asteroid.rect.center = pos
+        asteroid.x, asteroid.y = pos
+        asteroids.append(asteroid)
         angle += 180
 
 
 def check_shot_collision():
     global level, score, game_mode, lives
     for shot in shots:
-        for astroid in astroids:
-            dist = math.hypot(astroid.x - shot.x, astroid.y - shot.y)
-            if dist < astroid.diameter:
+        for asteroid in asteroids:
+            dist = math.hypot(asteroid.x - shot.x, asteroid.y - shot.y)
+            if dist < asteroid.diameter:
                 score += shot.count * level
                 score_text.text("SCORE: " + str(score))
-                if astroid.astroid_size == "large":
-                    split_astroid(shot.angle, astroid.rect.center, "medium")
-                elif astroid.astroid_size == "medium":
-                    split_astroid(shot.angle, astroid.rect.center, "small")
+                if asteroid.asteroid_size == "large":
+                    split_asteroid(shot.angle, asteroid.rect.center, "medium")
+                elif asteroid.asteroid_size == "medium":
+                    split_asteroid(shot.angle, asteroid.rect.center, "small")
                 shots.remove(shot)
-                astroids.remove(astroid)
+                asteroids.remove(asteroid)
                 pygame.mixer.Sound.play(boom)
-                if not astroids:
+                if not asteroids:
                     pygame.mixer.Sound.stop(thrusters)
                     level += 1
                     lives += 1
@@ -368,9 +368,9 @@ def check_ship_collision():
         else:
             immunity_counter += 1
     else:
-        for astroid in astroids:
-            dist = math.hypot(astroid.x - ship.x, astroid.y - ship.y)
-            if dist < astroid.diameter + ship.diameter:
+        for asteroid in asteroids:
+            dist = math.hypot(asteroid.x - ship.x, asteroid.y - ship.y)
+            if dist < asteroid.diameter + ship.diameter:
                 pygame.mixer.Sound.play(collide)
                 toggle_immunity()
                 if not lives:
@@ -385,8 +385,8 @@ def draw():
     screen.blit(background, (0, 0))
 
     if game_mode == "playing":
-        for astroid in astroids:
-            screen.blit(astroid.surf, astroid.rect)
+        for asteroid in asteroids:
+            screen.blit(asteroid.surf, asteroid.rect)
 
         if not (immunity and immunity_counter < 5):
             screen.blit(ship.surf, ship.rect)
@@ -406,7 +406,7 @@ def draw():
 
 
 score_text = Text("SCORE: " + str(score), 20, "topright", (WIDTH - 34, 10))
-messege_text = Text("Astroids", 90, "center", (CENTERX, CENTERY))
+messege_text = Text("Asteroids", 90, "center", (CENTERX, CENTERY))
 ship = Ship()
 mode_select()
 pygame.mixer.music.play(-1)
@@ -416,7 +416,7 @@ while running:
     if game_mode == "playing":
         update_ship()
         update_shots()
-        update_astroids()
+        update_asteroids()
         check_shot_collision()
         check_ship_collision()
     draw()
