@@ -234,7 +234,7 @@ def check_shot_collision():
                     split_astroid(shot.angle, astroid.pos, "small")
                 shots.remove(shot)
                 astroids.remove(astroid)
-                sounds.collide.play()
+                sounds.boom.play()
                 if not astroids:
                     sounds.thrusters.stop()
                     level += 1
@@ -249,7 +249,7 @@ def check_ship_collision():
     for astroid in astroids:
         dist = math.hypot(astroid.x - ship.x, astroid.y - ship.y)
         if dist < astroid.diameter + ship.diameter:
-            sounds.boom.play()
+            sounds.collide.play()
             toggle_immunity()
             if not lives:
                 sounds.thrusters.stop()
