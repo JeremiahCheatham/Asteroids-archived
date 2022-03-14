@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=ASTEROIDS! - PyGame Zero
+GenericName=Asteroids clone
+Comment=An Asteroids game in PyGame Zero.
+Keywords=Game;Pygame;Asteroids
+Exec=asteroids-pygame-zero
+Icon=/usr/share/asteroids/images/icon.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Game
