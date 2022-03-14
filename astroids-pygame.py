@@ -350,7 +350,7 @@ def check_shot_collision():
                     split_astroid(shot.angle, astroid.rect.center, "small")
                 shots.remove(shot)
                 astroids.remove(astroid)
-                pygame.mixer.Sound.play(collide)
+                pygame.mixer.Sound.play(boom)
                 if not astroids:
                     pygame.mixer.Sound.stop(thrusters)
                     level += 1
@@ -371,7 +371,7 @@ def check_ship_collision():
         for astroid in astroids:
             dist = math.hypot(astroid.x - ship.x, astroid.y - ship.y)
             if dist < astroid.diameter + ship.diameter:
-                pygame.mixer.Sound.play(boom)
+                pygame.mixer.Sound.play(collide)
                 toggle_immunity()
                 if not lives:
                     pygame.mixer.Sound.stop(thrusters)
