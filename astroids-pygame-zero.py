@@ -161,6 +161,8 @@ def shoot():
 def on_key_down(key):
     if key == keys.SPACE:
         shoot()
+    if key == keys.ESCAPE:
+        exit()
     if key == keys.M:
         if music.is_playing(MUSIC):
             music.pause()
