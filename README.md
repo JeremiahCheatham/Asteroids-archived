@@ -1,7 +1,7 @@
 ![Screenshot](screenshots/Astroids2.png)
 # Astroids!
 
-Astroids clone written three times, in Pygame, Pygame Zero and C/SDL2.
+Astroids clone written three times, in Pygame, Pygame Zero and C / SDL2.
 
 
 # Controls
