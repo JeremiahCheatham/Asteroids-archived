@@ -1,7 +1,7 @@
 ![Screenshot](screenshots/Astroids2.png)
-# Astroids!
+# Asteroids!
 
-Astroids clone written three times, in Pygame, Pygame Zero and C / SDL2.
+Asteroids clone written three times, in Pygame, Pygame Zero and C / SDL2.
 
 
 # Controls
@@ -23,17 +23,17 @@ PyGame Zero with all dependencies needs to be installed.
 
 To run the program from terminal.
 
-    python astroids-pygame-zero.py
+    python asteroids-pygame-zero.py
 
 
 If you wish to install it into your system run this command. This will add a menu entry under Game.
 
-    sudo bash ./install-astroids-pygame-zero.sh
+    sudo bash ./install-asteroids-pygame-zero.sh
 
 
 If install you can also run it from the terminal with this command.
 
-    astroids-pygame-zero
+    asteroids-pygame-zero
 
 
 # Python PyGame
@@ -42,17 +42,17 @@ PyGame with all dependencies needs to be installed.
 
 To run the program from terminal.
 
-    python astroids-pygame.py
+    python asteroids-pygame.py
 
 
 If you wish to install it into your system run this command. This will add a menu entry under Game.
 
-    sudo bash ./install-astroids-pygame.sh
+    sudo bash ./install-asteroids-pygame.sh
 
 
 If installed you can also run it from the terminal with this command.
 
-    astroids-pygame
+    asteroids-pygame
 
 
 # C / SDL2
@@ -66,17 +66,17 @@ To compile the binary from a terminal.
 
 To run the program from terminal if successfully compiled.
 
-    ./astroids-sdl
+    ./asteroids-sdl
 
 
 If you wish to install it into your system run this command. This will compile the source code and install it. It will also add a menu entry under Game.
 
-    sudo bash ./install-astroids-sdl.sh
+    sudo bash ./install-asteroids-sdl.sh
 
 
 If installed you can also run it from the terminal with this command.
 
-    astroids
+    asteroids
 
 ![Screenshot](screenshots/Astroids3.png)
 ![Screenshot](screenshots/Astroids4.png)
