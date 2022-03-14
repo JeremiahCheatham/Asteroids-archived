@@ -14,6 +14,8 @@ Space - Fires the ship's weapon.
 
 M - Pauses or resumes the music.
 
+Escape - Quits the game.
+
 
 # Python PyGame Zero
 
