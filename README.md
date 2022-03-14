@@ -1,4 +1,4 @@
-![Screenshot](screenshots/Astroids2.png)
+![Screenshot](screenshots/Asteroids2.png)
 # Asteroids!
 
 Asteroids clone written three times, in Pygame, Pygame Zero and C / SDL2.
@@ -78,8 +78,8 @@ If installed you can also run it from the terminal with this command.
 
     asteroids
 
-![Screenshot](screenshots/Astroids3.png)
-![Screenshot](screenshots/Astroids4.png)
-![Screenshot](screenshots/Astroids5.png)
-![Screenshot](screenshots/Astroids6.png)
-![Screenshot](screenshots/Astroids7.png)
+![Screenshot](screenshots/Asteroids3.png)
+![Screenshot](screenshots/Asteroids4.png)
+![Screenshot](screenshots/Asteroids5.png)
+![Screenshot](screenshots/Asteroids6.png)
+![Screenshot](screenshots/Asteroids7.png)
