@@ -52,7 +52,7 @@ enum Errors message_update(const char * string, const long num, enum MsgTypes ms
 
 enum Errors messages_reset(struct Messages *msg, SDL_Renderer *rend) {
     // load score and title messages.
-    enum Errors rvalue = message_update("ASTROIDS!", -1, MSG_TITLE, msg, rend);
+    enum Errors rvalue = message_update("ASTEROIDS!", -1, MSG_TITLE, msg, rend);
     if (rvalue)
         return rvalue;
 
