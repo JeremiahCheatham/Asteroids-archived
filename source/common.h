@@ -15,7 +15,7 @@
 
 // Define directives for constants.
 #define MY_SDL_FLAGS (SDL_INIT_VIDEO|SDL_INIT_TIMER|SDL_INIT_AUDIO)
-#define TITLE "ASTROIDS! - SDL"
+#define TITLE "ASTEROIDS! - SDL"
 #define ICON "images/icon.png"
 #define WIDTH 800
 #define HEIGHT 600
@@ -45,9 +45,9 @@
    X(background) \
    X(icon) \
    X(shot) \
-   X(astroidsmall) \
-   X(astroidmedium) \
-   X(astroidlarge)
+   X(asteroidsmall) \
+   X(asteroidmedium) \
+   X(asteroidlarge)
 
 #define TO_ENUM(NAME) NAME,
 #define TO_STR(NAME)  #NAME,
