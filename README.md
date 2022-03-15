@@ -61,7 +61,7 @@ SDL2 with all dependencies needs to be installed.
 
 To compile the binary from a terminal.
 
-    make rebuild
+    make
 
 
 To run the program from terminal if successfully compiled.
