@@ -4,8 +4,8 @@
 #include "common.h"
 #include "sprites.h"
 #include "shots.h"
-#include "astroids.h"
+#include "asteroids.h"
 
-void memory_release_exit(struct Game *ast, struct Player *player, struct Shots *shots, struct Astroids *astroids, struct Messages *msg);
+void memory_release_exit(struct Game *ast, struct Player *player, struct Shots *shots, struct Asteroids *asteroids, struct Messages *msg);
 
 #endif
