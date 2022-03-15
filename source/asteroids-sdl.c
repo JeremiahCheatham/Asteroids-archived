@@ -6,7 +6,7 @@
 #include "sprites.h"
 #include "sdl_init.h"
 #include "shots.h"
-#include "astroids.h"
+#include "asteroids.h"
 #include "exit.h"
 #include "messages.h"
 #include "game_mode.h"
@@ -34,7 +34,7 @@ int main() {
         .mode = MODE_START
     };
 
-    struct Astroids astroids = { .first_astroid = NULL };
+    struct Asteroids asteroids = { .first_asteroid = NULL };
 
     struct Player player = {
         .sprite.text = NULL,
@@ -57,34 +57,34 @@ int main() {
     // Initialize SDL, create window and renderer.
     ast.exit_status = sdl_setup(&ast);
     if (ast.exit_status)
-        memory_release_exit(&ast, &player, &shots, &astroids, &msg);
+        memory_release_exit(&ast, &player, &shots, &asteroids, &msg);
 
     // load all the textures into a textures array.
     ast.exit_status = texts_load(SPRITE_NAMES, LEN(SPRITE_NAMES), &ast);
     if (ast.exit_status)
-        memory_release_exit(&ast, &player, &shots, &astroids, &msg);
+        memory_release_exit(&ast, &player, &shots, &asteroids, &msg);
 
     // load score and title messages.
     ast.exit_status = messages_load(&msg, ast.rend);
     if (ast.exit_status)
-        memory_release_exit(&ast, &player, &shots, &astroids, &msg);
+        memory_release_exit(&ast, &player, &shots, &asteroids, &msg);
 
     // load all audio.
     ast.exit_status = audio_load(&ast);
     if (ast.exit_status)
-        memory_release_exit(&ast, &player, &shots, &astroids, &msg);
+        memory_release_exit(&ast, &player, &shots, &asteroids, &msg);
 
     // Create main player from sprite struct.
     ast.exit_status = player_create(&player, &ast);
     if (ast.exit_status)
-        memory_release_exit(&ast, &player, &shots, &astroids, &msg);
+        memory_release_exit(&ast, &player, &shots, &asteroids, &msg);
 
     //Play the music
     Mix_PlayMusic(ast.music, -1);
 
-    ast.exit_status = game_mode(&ast, &player, &shots, &astroids, &msg);
+    ast.exit_status = game_mode(&ast, &player, &shots, &asteroids, &msg);
     if (ast.exit_status)
-        memory_release_exit(&ast, &player, &shots, &astroids, &msg);
+        memory_release_exit(&ast, &player, &shots, &asteroids, &msg);
 
     while (!ast.exit_status) {
         // process events
@@ -102,7 +102,7 @@ int main() {
                     if (event.user.code == TIMER_IMMUNE) {
                         player_immunity_toggle(&player, false);
                     } else if (event.user.code == TIMER_GAME) {
-                        game_mode(&ast, &player, &shots, &astroids, &msg);
+                        game_mode(&ast, &player, &shots, &asteroids, &msg);
                     }
                     break;
 
@@ -156,11 +156,11 @@ int main() {
 
             shots_update(&shots);
 
-            ast.exit_status = astroids_update(ast.rend, &astroids);
+            ast.exit_status = asteroids_update(ast.rend, &asteroids);
             if (ast.exit_status)
                 continue;
 
-            ast.exit_status = astroid_collision_check(&ast, &player, &shots, &astroids, &msg);
+            ast.exit_status = asteroid_collision_check(&ast, &player, &shots, &asteroids, &msg);
             if (ast.exit_status)
                 continue;
 
@@ -178,7 +178,7 @@ int main() {
         }
 
         if (ast.mode == MODE_PLAY) {
-            ast.exit_status = astroids_render(ast.rend, &astroids);
+            ast.exit_status = asteroids_render(ast.rend, &asteroids);
             if (ast.exit_status)
                 continue;
 
@@ -226,5 +226,5 @@ int main() {
     }
 
     // Release memory and null pointers before exiting.
-    memory_release_exit(&ast, &player, &shots, &astroids, &msg);
+    memory_release_exit(&ast, &player, &shots, &asteroids, &msg);
 }
