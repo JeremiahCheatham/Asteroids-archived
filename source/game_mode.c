@@ -1,6 +1,6 @@
 #include "game_mode.h"
 
-enum Errors game_mode(struct Game *ast, struct Player *player, struct Shots *shots, struct Astroids *astroids, struct Messages *msg) {
+enum Errors game_mode(struct Game *ast, struct Player *player, struct Shots *shots, struct Asteroids *asteroids, struct Messages *msg) {
     enum Errors rvalue = 0;
     if (player->engine)
         player_engine_toggle(player, ast);
@@ -32,7 +32,7 @@ enum Errors game_mode(struct Game *ast, struct Player *player, struct Shots *sho
             shots->shots_count = 100;
             shots_delete_all(shots);
 
-            rvalue = astroid_populate(astroids, ast);
+            rvalue = asteroid_populate(asteroids, ast);
             if (rvalue)
                 return rvalue;
 
