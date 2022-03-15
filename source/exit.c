@@ -1,7 +1,7 @@
 #include "exit.h"
 
 // Release memory and null pointers before exiting.
-void memory_release_exit(struct Game *ast, struct Player *player, struct Shots *shots, struct Astroids *astroids, struct Messages *msg) {
+void memory_release_exit(struct Game *ast, struct Player *player, struct Shots *shots, struct Asteroids *asteroids, struct Messages *msg) {
     switch (ast->exit_status) {
         case ERROR_SDL:
             fprintf(stderr, "Error initializing SDL: %s\n", SDL_GetError());
@@ -49,7 +49,7 @@ void memory_release_exit(struct Game *ast, struct Player *player, struct Shots *
             fprintf(stderr, "Error initializing SDL_mixer: %s\n", Mix_GetError());
             break;
         case ERROR_MALC:
-            fprintf(stderr, "Failed to malloc new astroid!\n");
+            fprintf(stderr, "Failed to malloc new asteroid!\n");
             break;
         case ERROR_TARG:
             fprintf(stderr, "Error setting renderer target: %s\n", SDL_GetError());
@@ -124,7 +124,7 @@ void memory_release_exit(struct Game *ast, struct Player *player, struct Shots *
         }
     }
 
-    astroid_delete_all(astroids);
+    asteroid_delete_all(asteroids);
 
     IMG_Quit();
 
