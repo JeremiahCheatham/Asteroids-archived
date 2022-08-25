@@ -6,7 +6,7 @@ if [ 0 != $UID ]; then
     exit 1
 fi
 
-if ! make rebuild; then
+if ! (make clean && make); then
     echo
     echo "Well that didn't work."
     echo "To compile you need a basic biuld enviroment."
