@@ -20,7 +20,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(TITLE)
 pygame.display.set_icon(pygame.image.load(ICON).convert_alpha())
 
-background = pygame.image.load("images/backdrop.jpg").convert()
+background = pygame.image.load("images/background.png").convert()
 life = pygame.image.load("images/icon.png").convert_alpha()
 thrusters = pygame.mixer.Sound("sounds/thrusters.ogg")
 laser = pygame.mixer.Sound("sounds/laser.ogg")
