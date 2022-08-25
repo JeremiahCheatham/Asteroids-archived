@@ -295,7 +295,7 @@ def update():
 
 
 def draw():
-    screen.blit("backdrop", (0, 0))
+    screen.blit("background", (0, 0))
     if game_mode == "playing":
         if not (immunity and immunity_counter < 5):
             ship.draw()
