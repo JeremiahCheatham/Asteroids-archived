@@ -1,4 +1,4 @@
-# Archived, Unmaintained original versioon of Asteroids. Please don't uses this version.
+# Archived, Unmaintained original version of Asteroids. Please don't uses this version.
 
 ![Screenshot](screenshots/Asteroids2.png)
 # Asteroids!
